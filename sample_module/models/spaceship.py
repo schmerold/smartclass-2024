@@ -1,6 +1,5 @@
 from odoo import api, fields, models
 
-
 class Spaceship(models.Model):
     """Model used to store information about spaceships"""
     _name = 'space.spaceship'
