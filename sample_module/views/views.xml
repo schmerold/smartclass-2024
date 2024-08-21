@@ -12,6 +12,16 @@
                             <field name="number"/>
                         </group>
                     </group>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="cost_per_gallon"/>
+                        <field name="gallons_per_tank"/>
+                        <field name="cost_per_gallon"/>
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -24,7 +34,20 @@
             <tree string="Spaceships">
                 <field name="name" readonly="1"/>
                 <field name="number" readonly="1"/>
+                <field name="partner_id" readonly="0"/>
             </tree>
         </field>
     </record>
+
+    
+    <record id="sale_order_form_view_inherit" model="ir.ui.view">
+        <field name="name">spaceship.sale.order.form.view.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="spaceship_id"/>
+            </field>
+        </field>
+    </record>    
 </odoo>
